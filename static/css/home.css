@@ -74,3 +74,6 @@ header ul li a:hover,
 .home {
     padding-top: 90px;
 }
+.home h1 {
+    text-transform: capitalize;
+}
