@@ -30,7 +30,9 @@ p {
     color: var(--home-p);
     font-size: var(--hame-p-size);
 }
-
+.grid {
+    display: grid;
+}
 /* Navigation */
 header {
     position: fixed;
@@ -75,20 +77,35 @@ header ul li a:hover,
 #home {
     width: 100%;
     height: 100vh;
-    background: url(commodity_reservation\static\images\train.jpg) top center;
+    background: url(/static/images/train.jpg) top center;
     background-size: cover;
     overflow: hidden;
     position: relative;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    z-index: -1;
+}
+#home::before {
+    content: "";
+    background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,134,0,1) 100%);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.7;
+    z-index: 0;
+}
+#home > * {
+    position: relative;
+    z-index: 100;
 }
 #home h1 {
     text-transform: capitalize;
 }
-#home .container .home-container .home-background {
-    position: absolute;
-    height: 100vh;
-    width: 100%;
-}
-#home .container .home-container .home-background img {
-    width: 100%;
-    height: auto;
+#home .container .home-container {
+    padding-top: 90px;
+    text-align: center;
+    z-index: 100;
 }
