@@ -12,7 +12,12 @@
 :root {
     --home-p : rgb(0, 0, 0);
     --home-bg-color : rgb(250, 235, 215);
-    --hame-p-size: 1rem;
+    --home-p-size: 1rem;
+    --c1 : #ff8600;
+    --c2 : #B2886A;
+    --c3 : #FFF6EA;
+    --c4 : #402E32;
+    --c5 : #854A3C;
 }
 
 #body {
