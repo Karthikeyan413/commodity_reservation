@@ -12,7 +12,12 @@
 :root {
     --home-p : rgb(0, 0, 0);
     --home-bg-color : rgb(250, 235, 215);
-    --hame-p-size: 1rem;
+    --home-p-size: 1rem;
+    --c1 : #ff8600;
+    --c2 : #B2886A;
+    --c3 : #FFF6EA;
+    --c4 : #402E32;
+    --c5 : #854A3C;
 }
 
 #body {
@@ -88,7 +93,7 @@ header ul li a:hover,
 }
 #home::before {
     content: "";
-    background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,134,0,1) 100%);
+    background: linear-gradient(0deg,  0%, rgba(255,134,0,1) 100%);
     position: absolute;
     top: 0;
     left: 0;
