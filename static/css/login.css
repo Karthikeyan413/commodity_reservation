@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400&family=Poppins:wght@400;500;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* font-family: 'Nunito Sans', sans-serif; */
+    font-family: 'Poppins', sans-serif;
+
+}
+
+:root {
+    --c1 : #ff8600;
+    --c2 : #B2886A;
+    --c3 : #FFF6EA;
+    --c4 : #402E32;
+    --c5 : #854A3C;
+}
+
+#body {
+    background-color: var(--c3);
+}
+h1,h2,h3,h4,h5,h6 {
+    color: var(--c4);
+    font-size: 1.5rem;
+    text-transform: capitalize;
+}
+a {
+    text-decoration: none;
+}
+p {
+    color: var(--c4);
+    font-size: 20px;
+}
+.login_container {
+    display: grid;
+    /* grid-template-rows: 20% 80%; */
+    height: 100vh;
+}
+.title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.title h1 {
+    font-size: 2.5rem;
+}
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    align-items: center;
+}
+.grid-item {
+    display: grid;
+    align-items: center;
+    justify-items: center;
+}
+.login-img {
+    width: 500px;
+}
+body a {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+}

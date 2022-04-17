@@ -19,5 +19,7 @@ from reservationapp import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('home/', views.home)
+    path('home/', views.home),
+    path('logout/', views.user_logout, name='logout'),
+    path('login/', views.user_login, name='login'),
 ]

@@ -108,7 +108,7 @@ header ul li a:hover,
 #home::before {
     content: "";
     /* background: linear-gradient(0deg, var(--c3)  0%, var(--c1) 100%); */
-    background: linear-gradient(to right top, #fff6ea, #ffddb2, #ffc27c, #ffa648, #ff8600);
+    background: linear-gradient(to top, #fff6ea, #ffddb2, #ffc27c, #ffa648, #ff8600);
     position: absolute;
     top: 0;
     left: 0;
@@ -116,6 +116,15 @@ header ul li a:hover,
     height: 100%;
     opacity: 0.8;
     z-index: 0;
+}
+#home::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100px;
+    z-index: 20;
+    bottom: 0;
+    background: linear-gradient(to top,var(--c3),transparent );
 }
 #home > * {
     position: relative;
