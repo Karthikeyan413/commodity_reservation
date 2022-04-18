@@ -18,7 +18,7 @@
 }
 
 #body {
-    background-color: var(--c3);
+    background: linear-gradient(to left,var(--c4) 50%, var(--c3) 50%) no-repeat;
 }
 h1,h2,h3,h4,h5,h6 {
     color: var(--c4);
@@ -33,7 +33,7 @@ p {
     font-size: 20px;
 }
 .login_container {
-    display: grid;
+
     /* grid-template-rows: 20% 80%; */
     height: 100vh;
 }
@@ -44,9 +44,11 @@ p {
 }
 .title h1 {
     font-size: 2.5rem;
+    color: linear-gradient(to left,var(--c3) 50%, var(--c4) 50%) no-repeat;;
 }
 .grid {
     display: grid;
+    height: 100vh;
     grid-template-columns: 1fr 1fr;
     justify-items: center;
     align-items: center;
@@ -57,10 +59,34 @@ p {
     justify-items: center;
 }
 .login-img {
+    display: grid;
+    grid-template-rows: 30% 70%;
+    height: 100vh;
     width: 500px;
+}
+.login-form {
+    padding: 2rem 4rem 1rem 4rem;
+}
+.glass-morphism {
+    background: rgba(255, 255, 255, 1);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(9.9px);
+    -webkit-backdrop-filter: blur(9.9px);
+    border: 1px solid rgba(255, 255, 255, 0.03);
 }
 body a {
     position: fixed;
     right: 0;
     bottom: 0;
+}
+#invalid {
+    color: red;
+}
+.title h1 {
+    font-size: 2.4rem;
+    text-align: center;
+}
+.title-login {
+    padding-top: 2rem;
 }

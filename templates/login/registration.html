@@ -1,0 +1,42 @@
+{% extends "login/base.html" %}
+
+{% block title_block %}
+<h1>Registration</h1>
+{% endblock %}
+
+{% block form_block %}
+<div class="container">
+  <form class="" action="#" method="post">
+    {% csrf_token %}
+
+    <div class="mb-3 row">
+      <label for="email" class="col-sm-2 col-form-label">Name </label>
+      <p class="col-sm-1 col-form-label"> :</p>
+      <div class="col-sm-9">
+        {{ form_register.username }}
+      </div>
+    </div>
+
+    <div class="mb-3 row">
+      <label for="pwd" class="col-sm-2 col-form-label">Email</label>
+      <p class="col-sm-1 col-form-label"> :</p>
+      <div class="col-sm-9">
+        {{ form_register.email }}
+      </div>
+    </div>
+
+    <div class="mb-3 row">
+      <label for="pwd" class="col-sm-2 col-form-label">Password</label>
+      <p class="col-sm-1 col-form-label"> :</p>
+      <div class="col-sm-9">
+        {{ form_register.password }}
+      </div>
+    </div>
+
+    <div class="mb-3 row submit">
+      <input id="button" type="submit" class="btn btn-outline-primary" name="" value="Sign Up">
+    </div>
+  </form>
+  <div class="form-text">Already have an account ? <a href="{% url 'login' %}">Login</a>
+</div>
+{% endblock %}

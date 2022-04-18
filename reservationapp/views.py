@@ -5,8 +5,34 @@ from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_protect
 
-
+from reservationapp.forms import RegisterForm
 # Create your views here.
+
+@csrf_protect
+def register_user(request):
+    if(request.user.is_authenticated):
+        logout(request)
+    registered = False
+    if request.method == 'POST':
+        form_register = RegisterForm(data=request.POST)
+
+        if form_register.is_valid() :
+            user = form_register.save()
+            user.set_password(user.password)
+            user.save()
+
+            registered = True
+
+        else:
+            print(form_register.errors)
+    else:
+        form_register = RegisterForm()
+    if(registered):
+        return HttpResponseRedirect('/login')
+    else:
+        return render(request, 'login/registration.html', {
+                                                'form_register': form_register,
+                                                 })
 
 @csrf_protect
 def user_login(request):
