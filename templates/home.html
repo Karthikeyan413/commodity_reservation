@@ -26,6 +26,13 @@
             <li> <a href="#contact_us" >contact us</a> </li>
         </ul>
     </header>
+    {% if user.is_authenticated %}
+    <div id="logout">
+        <a class="text-logout"href="{% url 'logout' %}">Logout</a>
+    </div>
+    {% else %}
+    <p>Please Log In</p>
+    {% endif %}
     <section id="home">
         <div class="container">
             <div class="home-container grid">

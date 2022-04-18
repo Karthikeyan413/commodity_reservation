@@ -92,6 +92,19 @@ header ul li a:hover,
     transition: 0.3s all ease;
 }
 
+/* logout */
+#logout {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    border-radius: 20px;
+
+}
+
+#logout .text-logout {
+    text-decoration: none;
+    color: var(--c5);
+}
 /* Home */
 #home {
     width: 100%;
