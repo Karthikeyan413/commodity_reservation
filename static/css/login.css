@@ -79,6 +79,20 @@ body a {
     position: fixed;
     right: 0;
     bottom: 0;
+    text-decoration: none;
+    color: var(--c2);
+}
+#button {
+    color: var(--c1);
+    border-color: var(--c1);
+}
+#button:hover {
+    color: var(--c3);
+    border-color: var(--c1);
+    background-color: var(--c1);
+}
+.form-text a {
+    position:static;
 }
 #invalid {
     color: red;
@@ -88,5 +102,5 @@ body a {
     text-align: center;
 }
 .title-login {
-    padding-top: 2rem;
+    padding-top: 3rem;
 }
