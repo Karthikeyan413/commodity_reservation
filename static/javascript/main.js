@@ -4,5 +4,5 @@ function scrollFunction() {
     } else {
       document.getElementsByClassName("header")[0].className = "header";
     }
-  }
-  window.onscroll = function() {scrollFunction()};
+}
+window.onscroll = function() {scrollFunction()};

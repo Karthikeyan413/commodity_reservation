@@ -31,7 +31,9 @@
         <a class="text-logout"href="{% url 'logout' %}">Logout</a>
     </div>
     {% else %}
-    <p>Please Log In</p>
+    <div id="logout">
+        <a class="text-logout"href="{% url 'login' %}">Login</a>
+    </div>
     {% endif %}
     <section id="home">
         <div class="container">
@@ -53,7 +55,7 @@
         </div>
     </section>
     <section id="about-us">
-        <div class="container">
+        <div class="container grid">
             <div class="about-container grid">
                 <div class="title grid-item">
                     <h1>
@@ -61,13 +63,18 @@
                     </h1>
                 </div>
                 <div class="para grid-item">
-                    <p>
-                        Indian Railways is the backbone of the country's logistics sector. 
-                        We carry more than 1.4 Billon tonnes of freight traffic every year over a network of 68000 kms. With our network touching almost every nook and corner of the country, we play a crucial role in facilitating a balanced and inclusive socio economic development of the country. We carry almost all commodities including bulk commodities like Coal, Iron ore, Iron & Steel, Food grains, Cement, Petroleum products, Fertilizer and other commodities carried in containers. We are proud to serve more than 9,000 customers. We are the most environment friendly mode of land transportation. 
-                        <b>
-                            Our commitment is competitive rates and timely delivery of cargo.
-                        </b>
-                    </p>
+                    <div>
+                        <p>
+                            Indian Railways is the backbone of the country's logistics sector. 
+                            We carry more than 1.4 Billon tonnes of freight traffic every year over a network of 68000 kms. With our network touching almost every nook and corner of the country, we play a crucial role in facilitating a balanced and inclusive socio economic development of the country. We carry almost all commodities including bulk commodities like Coal, Iron ore, Iron & Steel, Food grains, Cement, Petroleum products, Fertilizer and other commodities carried in containers. We are proud to serve more than 9,000 customers. We are the most environment friendly mode of land transportation. 
+                            <b>
+                                Our commitment is competitive rates and timely delivery of cargo.
+                            </b>
+                        </p>
+                    </div>
+                    <div class="about-img">
+                        <img class="abt-img" src="{% static "images/about-img/abt-img.png" %}" alt="">
+                    </div>
                 </div>
                 <div class="data-container grid-item">
                     <div class="data-item grid-item">
@@ -108,6 +115,11 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
+    <section class="what-we-offer">
+        <div class="container">
+            
         </div>
     </section>
 </body>

@@ -166,10 +166,13 @@ header ul li a:hover,
     border-bottom: 0.5rem solid var(--c1);
 }
 #about-us .container .about-container .para p {
-    font-size: 1rem;
+    font-size: 1.1rem;
 }
 #about-us .container .about-container .para {
-    width: 1000px;
+    width: 1270px;
+    height: 200px;
+    grid-template-columns: 65% 35%;
+    margin-bottom: 2rem;
 }
 #about-us .container .about-container .title, .para, .data-container {
     margin-top: 1rem;
@@ -184,4 +187,12 @@ header ul li a:hover,
 }
 #about-us .container .about-container .data-container .data-item .data-grid .data {
     font-size: 1.5rem;
+}
+#about-us .container .about-container .para .about-img {
+    width: 80%;
+    height: 80%;
+    padding: 0.25rem;
+}
+#about-us .container .about-container .para .about-img img {
+    width: -webkit-fill-available;
 }
