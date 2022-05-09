@@ -3,6 +3,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
+from django.views.decorators.cache import cache_control
 from django.views.decorators.csrf import csrf_protect
 
 from reservationapp.forms import RegisterForm
@@ -58,10 +59,12 @@ def user_login(request):
         return render(request, 'login/login.html', {})
 
 
-@login_required
+@cache_control(no_cache=True, must_revalidate=True, no_store=True)
+@login_required(login_url='/login')
 def user_logout(request):
     logout(request)
     return HttpResponseRedirect('/login')
 
+@cache_control(no_cache=True, must_revalidate=True, no_store=True)
 def home(request):
     return render(request, 'home.html')
