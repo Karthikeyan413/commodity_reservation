@@ -21,8 +21,9 @@
         <div>Arrival Time: {{ time.arrival_time }}</div>
         <div>Departure Date: {{ time.dept_date }}</div>
         <div>Arrival Date : {{ time.arrival_date }}</div>
+
+        <a href="{% url 'reservation' train.train_id %}">BOOK</a>
         <div>----------------------------------------</div>
-        if
     {% endfor %}
 </body>
 </html>

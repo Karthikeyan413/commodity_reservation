@@ -8,6 +8,8 @@ from django.views.decorators.csrf import csrf_protect
 
 from reservationapp.forms import RegisterForm,RegisterNoForm
 from reservationapp.models import Route, Train, Time, Ticket
+
+import random
 # Create your views here.
 
 @csrf_protect
@@ -109,8 +111,17 @@ def availability(request):
 
 @login_required(login_url='/login')
 @cache_control(no_cache=True, must_revalidate=True, no_store=True)
-def reservation(request):
-    if request.method == 'POST':
-        render(request, 'reservation.html')
-    else:
-        return render(request, 'reservation.html')
+def reservation(request,reservation_id):
+ 
+    train = Train.objects.get(train_id=reservation_id)
+    ticket = Ticket
+
+    ticket.ticket_num = random.randint(1, 100)
+    ticket.user = request.user
+    ticket.source = Route.objects.get(train_id_id = reservation_id).source
+    ticket.destination = Route.objects.get(train_id_id = reservation_id).destination
+    ticket.train_id = reservation_id
+
+    return render(request, 'ticket.html')
+    
+    # return render(request, 'reservation.html')

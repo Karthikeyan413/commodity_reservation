@@ -24,4 +24,5 @@ urlpatterns = [
     path('registration/', views.register_user, name='register'),
     path('login/', views.user_login, name='login'),
     path('availability/', views.availability),
+    path(r'reservation/(?P<reservation_id>[0-9]+)/$', views.reservation, name='reservation'),
 ]
