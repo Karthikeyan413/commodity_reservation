@@ -6,7 +6,7 @@ from django.contrib.auth.decorators import login_required
 from django.views.decorators.cache import cache_control
 from django.views.decorators.csrf import csrf_protect
 
-from reservationapp.forms import RegisterForm
+from reservationapp.forms import RegisterForm,RegisterNoForm
 # Create your views here.
 
 @csrf_protect
