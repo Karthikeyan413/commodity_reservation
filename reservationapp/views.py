@@ -7,6 +7,7 @@ from django.views.decorators.cache import cache_control
 from django.views.decorators.csrf import csrf_protect
 
 from reservationapp.forms import RegisterForm,RegisterNoForm
+from reservationapp.models import Route, Train, Time, Ticket
 # Create your views here.
 
 @csrf_protect
@@ -68,3 +69,48 @@ def user_logout(request):
 @cache_control(no_cache=True, must_revalidate=True, no_store=True)
 def home(request):
     return render(request, 'home.html')
+
+@login_required(login_url='/login')
+@cache_control(no_cache=True, must_revalidate=True, no_store=True)
+def availability(request):
+    if request.method == 'POST':
+        destination = request.POST.get('destination')
+        source = request.POST.get('source')
+        type = request.POST.get('type')
+
+        routes = Route.objects.all()
+        ltrain_ids=[]
+        for route in routes:
+            if(route.source == source and route.destination == destination):
+                ltrain_ids.append(route.train_id_id)
+        
+        trains = Train.objects.all()
+        ltrains=[]
+        for train in trains:
+            if(train.train_id in ltrain_ids):
+                ltrains.append(train)
+        
+        time = Time.objects.all()
+        
+        ltime=[]
+        for t in time:
+            if(t.train_id_id in ltrain_ids):
+                ltime.append(t)
+
+        ldetails=[]
+        for i in range(len(ltrain_ids)):
+            ldetails.append(tuple((ltrains[i],ltime[i])))
+
+        return render(request, 'availability.html', {'ldetails': ldetails})
+
+    
+    else:
+        return render(request, 'reservation.html')
+
+@login_required(login_url='/login')
+@cache_control(no_cache=True, must_revalidate=True, no_store=True)
+def reservation(request):
+    if request.method == 'POST':
+        render(request, 'reservation.html')
+    else:
+        return render(request, 'reservation.html')

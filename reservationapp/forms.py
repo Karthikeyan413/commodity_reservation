@@ -39,12 +39,11 @@ class RegisterNoForm(forms.ModelForm):
         'placeholder': 'Address',
         'rows' : 2,
     }))
-    age = forms.IntegerField(widget=forms.IntegerField(attrs={
+    age = forms.IntegerField(widget=forms.NumberInput(attrs={
         'class': 'form-control input',
         'placeholder': 'Age',
     }))
-    gender = forms.CharField(widget=forms.ChoiceField(
-        choices=(('M','male'),('F','female'),),
+    gender = forms.CharField(widget=forms.CheckboxInput(
         attrs={
             'class': 'form-select',
             'placeholder': 'Gender',

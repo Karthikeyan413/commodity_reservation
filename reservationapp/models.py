@@ -21,7 +21,9 @@ class Train(models.Model):
     no_of_block = models.IntegerField(null =False, blank=False)
     type = models.CharField(max_length=10,blank=False)
     availability = models.BooleanField(null =False, blank=False,default=False)
-        
+
+class Commodity(models.Model):
+    type = models.CharField(max_length=20,primary_key=True)
 
 class Route(models.Model):
     train_id = models.ForeignKey('Train',default=1,on_delete=models.CASCADE)
@@ -43,5 +45,5 @@ class Ticket(models.Model):
     source = models.CharField(max_length=30,null =False, blank=False)
     destination = models.CharField(max_length=30,null =False, blank=False)
     train_id = models.ForeignKey('Train',default=1,on_delete=models.CASCADE)
-    package_type = models.CharField(max_length=30,null =False, blank=False)
+    type = models.ForeignKey('Commodity',default=1,on_delete=models.CASCADE)
     block_no = models.IntegerField(null =False, blank=False)
