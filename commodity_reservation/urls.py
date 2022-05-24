@@ -19,10 +19,10 @@ from reservationapp import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('home/', views.home),
+    path('', views.home),
     path('logout/', views.user_logout, name='logout'),
     path('registration/', views.register_user, name='register'),
     path('login/', views.user_login, name='login'),
-    path('availability/', views.availability),
+    path('availability/', views.availability, name='availability'),
     path(r'reservation/(?P<reservation_id>[0-9]+)/$', views.reservation, name='reservation'),
 ]

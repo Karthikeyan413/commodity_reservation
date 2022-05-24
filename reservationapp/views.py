@@ -28,7 +28,9 @@ def register_user(request):
             registered = True
 
         else:
-            print(form_register.errors)
+            return render(request, 'login/registration.html', { 
+                'form_register' : form_register,
+                })
     else:
         form_register = RegisterForm()
     if(registered):
@@ -51,7 +53,7 @@ def user_login(request):
         if user:
             if(user.is_active):
                 login(request, user)
-                return HttpResponseRedirect('/home')
+                return HttpResponseRedirect('/')
 
             else:
                 return HttpResponse("Account Not Active")

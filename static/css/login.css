@@ -94,6 +94,18 @@ body a {
 .form-text a {
     position:static;
 }
+.errorlist {
+    list-style: none;
+    padding-left: 1rem;
+}
+.errorlist > li {
+    text-transform: capitalize;
+    color: red;
+    display: -webkit-inline-box;
+}
+.errorlist > li > ul::before {
+    content: ": ";
+}
 #invalid {
     color: red;
 }

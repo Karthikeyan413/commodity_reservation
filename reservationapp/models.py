@@ -41,7 +41,7 @@ class Time(models.Model):
 
 class Ticket(models.Model):
     ticket_num = models.IntegerField(primary_key=True)
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User,default=1 ,on_delete=models.CASCADE)
     source = models.CharField(max_length=30,null =False, blank=False)
     destination = models.CharField(max_length=30,null =False, blank=False)
     train_id = models.ForeignKey('Train',default=1,on_delete=models.CASCADE)
