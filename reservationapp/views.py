@@ -7,7 +7,9 @@ from django.views.decorators.cache import cache_control
 from django.views.decorators.csrf import csrf_protect
 
 from reservationapp.forms import RegisterForm,RegisterNoForm
-from reservationapp.models import Route, Train, Time, Ticket
+from reservationapp.models import Route, Train, Time, Ticket, Commodity
+
+import random
 # Create your views here.
 
 @csrf_protect
@@ -77,6 +79,7 @@ def availability(request):
         destination = request.POST.get('destination')
         source = request.POST.get('source')
         type = request.POST.get('type')
+        request.session['selected_type'] = type
 
         routes = Route.objects.all()
         ltrain_ids=[]
@@ -109,8 +112,20 @@ def availability(request):
 
 @login_required(login_url='/login')
 @cache_control(no_cache=True, must_revalidate=True, no_store=True)
-def reservation(request):
-    if request.method == 'POST':
-        render(request, 'reservation.html')
-    else:
-        return render(request, 'reservation.html')
+def reservation(request,reservation_id):
+ 
+    train = Train.objects.get(train_id=reservation_id)
+    ticket = Ticket()
+
+    ticket.ticket_num = random.randint(1, 100)
+    ticket.user = request.user
+    ticket.source = Route.objects.get(train_id_id = reservation_id).source
+    ticket.destination = Route.objects.get(train_id_id = reservation_id).destination
+    ticket.train_id = train
+    print(request.session.get('selected_type'))
+    ticket.type = Commodity.objects.get(type = request.session.get('selected_type'))
+    ticket.block_no = random.randint(1,int(train.no_of_block))
+    ticket.save()
+    return render(request, 'ticket.html', {'ticket' : ticket})
+    
+    # return render(request, 'reservation.html')
