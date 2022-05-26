@@ -113,21 +113,42 @@ def availability(request):
         return render(request, 'reservation.html')
 
 @login_required(login_url='/login')
-@cache_control(no_cache=True, must_revalidate=True, no_store=True)
 def reservation(request,reservation_id):
- 
+
     train = Train.objects.get(train_id=reservation_id)
     ticket = Ticket()
 
     ticket.ticket_num = random.randint(1, 100)
+    request.session['ticket_num'] = ticket.ticket_num
     ticket.user = request.user
-    ticket.source = Route.objects.get(train_id_id = reservation_id).source
-    ticket.destination = Route.objects.get(train_id_id = reservation_id).destination
     ticket.train_id = train
-    print(request.session.get('selected_type'))
     ticket.type = Commodity.objects.get(type = request.session.get('selected_type'))
     ticket.block_no = random.randint(1,int(train.no_of_block))
     ticket.save()
-    return render(request, 'ticket.html', {'ticket' : ticket})
+
+    return HttpResponseRedirect('/tickets')
+    
     
     # return render(request, 'reservation.html')
+@login_required(login_url='/login')
+def ticket(request):
+    ticket = Ticket.objects.get(ticket_num = request.session.get('ticket_num'))
+    return render(request, 'ticket.html', {'ticket' : ticket})
+
+@login_required(login_url='/login')
+def profile(request):
+    if(request.method == 'POST'):
+        if request.user.is_superuser:
+            print("Not permitted")
+            return HttpResponse("Superuser can not be deleted")
+        try:
+            user = User.objects.get(username=request.user.username)
+            user.delete()
+            return HttpResponseRedirect('/login')
+        except:
+            return HttpResponse("Some other error")
+            
+    else:
+        profile_info = User.objects.get(username = request.user)
+        tickets = Ticket.objects.filter(user = request.user)
+        return render(request, 'profile.html', {'profile_info' : profile_info, 'tickets' : tickets} )

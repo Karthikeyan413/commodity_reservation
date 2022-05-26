@@ -42,8 +42,6 @@ class Time(models.Model):
 class Ticket(models.Model):
     ticket_num = models.IntegerField(primary_key=True)
     user = models.ForeignKey(User,default=1 ,on_delete=models.CASCADE)
-    source = models.CharField(max_length=30,null =False, blank=False)
-    destination = models.CharField(max_length=30,null =False, blank=False)
     train_id = models.ForeignKey('Train',default=1,on_delete=models.CASCADE)
     type = models.ForeignKey('Commodity',default=1,on_delete=models.CASCADE)
     block_no = models.IntegerField(null =False, blank=False)

@@ -23,7 +23,9 @@
             <li> <a href="#commodity" >New to rail</a></li>
             <li> <a href="#commodity" >existing customers</a></li>
             <li> <a href="#contact_us" >commodity</a> </li>
-            <li> <a href="#contact_us" >contact us</a> </li>
+            {% if user.is_authenticated %}
+            <li> <a href="{% url 'profile' %}" >Profile</a> </li>
+            {% endif %}
         </ul>
     </header>
     {% if user.is_authenticated %}
