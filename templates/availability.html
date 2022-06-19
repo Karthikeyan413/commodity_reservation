@@ -25,5 +25,8 @@
         <a href="{% url 'reservation' train.train_id %}">BOOK</a>
         <div>----------------------------------------</div>
     {% endfor %}
+    {% if not ldetails %}
+        <h4>No train available.</h4>
+    {% endif %}
 </body>
 </html>

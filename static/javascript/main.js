@@ -6,3 +6,21 @@ function scrollFunction() {
     }
 }
 window.onscroll = function() {scrollFunction()};
+
+function cancel(block) {
+  ticket_num = block.getAttribute('id')
+  if (confirm('Do you want to cancel you ticket!')){
+    document.getElementById(ticket_num).className = "none"
+    document.getElementsByClassName(ticket_num).className = "block";
+  }
+  else{
+    event.stopPropagation();
+    event.preventDefault();
+  }
+}
+blocks = document.getElementsByClassName('block');
+for (let index = 0; index < blocks.length; index++) {
+  console.log(blocks[index]);
+  
+}
+// blocks.forEach(cancel);

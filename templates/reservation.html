@@ -21,7 +21,12 @@
             <label for="source" class="col-sm-2 col-form-label">Source </label>
             <p class="col-sm-1 col-form-label"> :</p>
             <div class="col-sm-9">
-              <input id="source" class="form-control input" type="text" name="source" placeholder="Your location" required>
+              <input id="source" class="form-control input" type="text" name="source" list="source_places"placeholder="Your location" required>
+              <datalist id="source_places">
+                {% for source in sroutes %}
+                  <option value={{source}}>{{source}}</option>
+                {% endfor %}
+              </datalist>
             </div>
           </div>
 
@@ -29,7 +34,12 @@
               <label for="destination" class="col-sm-2 col-form-label">Destination</label>
               <p class="col-sm-1 col-form-label"> :</p>
               <div class="col-sm-9">
-                <input id="destination" class="form-control input" type="text" name="destination" placeholder="Destination" required>
+                <input id="destination" class="form-control input" type="text" name="destination" list="destination_places" placeholder="Destination" required>
+                <datalist id="destination_places">
+                  {% for destination in droutes %}
+                    <option value={{destination}}>{{destination}}</option>
+                  {% endfor %}
+                </datalist>
               </div>
             </div>
       

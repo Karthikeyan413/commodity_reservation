@@ -110,7 +110,13 @@ def availability(request):
 
     
     else:
-        return render(request, 'reservation.html')
+        routes = Route.objects.all()
+        sroutes=[]
+        droutes=[]
+        for route in routes:
+            sroutes.append(route.source)
+            droutes.append(route.destination)
+        return render(request, 'reservation.html', {'sroutes' : list(set(sroutes)) , 'droutes' : list(set(droutes))})
 
 @login_required(login_url='/login')
 def reservation(request,reservation_id):
@@ -152,3 +158,12 @@ def profile(request):
         profile_info = User.objects.get(username = request.user)
         tickets = Ticket.objects.filter(user = request.user)
         return render(request, 'profile.html', {'profile_info' : profile_info, 'tickets' : tickets} )
+
+@login_required(login_url='/login')
+def  cancellation(request,ticket_num):
+    try:
+        ticket = Ticket.objects.get(ticket_num=ticket_num)
+        ticket.delete()
+    except:
+        return HttpResponse("Some other error")
+    return HttpResponseRedirect('/profile')

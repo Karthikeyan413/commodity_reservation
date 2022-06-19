@@ -27,5 +27,5 @@ urlpatterns = [
     path(r'reservation/(?P<reservation_id>[0-9]+)/$', views.reservation, name='reservation'),
     path('tickets/',views.ticket, name='ticket'),
     path('profile/',views.profile, name='profile'),
-    # path('deleteuser/',views.delete, name='deleteuser'),
+    path(r'cancellation/(?P<ticket_num>[0-9]+)/$',views.cancellation, name='cancel'),
 ]
