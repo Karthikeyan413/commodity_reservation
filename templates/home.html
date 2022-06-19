@@ -23,7 +23,9 @@
             <li> <a href="#commodity" >New to rail</a></li>
             <li> <a href="#commodity" >existing customers</a></li>
             <li> <a href="#contact_us" >commodity</a> </li>
-            <li> <a href="#contact_us" >contact us</a> </li>
+            {% if user.is_authenticated %}
+            <li> <a href="{% url 'profile' %}" >Profile</a> </li>
+            {% endif %}
         </ul>
     </header>
     {% if user.is_authenticated %}
@@ -43,13 +45,16 @@
                         Welcome to Indian railways freight services
                     </h1>
                     <p>
-                        transforming supply chain with technology and inovations..
+                        transforming supply chain with technology and innovations..
                     </p>
                 </div>
                 <div class="para">
                     <h2>
                         dedicated 24x7 to serve the logistic needs of the country...
                     </h2>
+                </div>
+                <div class="button">
+                    <a href="{% url 'availability' %}">Check Availability</a>
                 </div>
             </div>
             <div class="blob-cont">

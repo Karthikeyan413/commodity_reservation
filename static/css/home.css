@@ -1,4 +1,7 @@
+/* fonts */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@1,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -49,6 +52,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    z-index: 1;
 }
 .header-fixed {
     background-color: var(--c4);
@@ -97,7 +101,7 @@ header ul li a:hover,
     bottom: 1rem;
     right: 1rem;
     border-radius: 20px;
-
+    z-index: 1;
 }
 
 #logout .text-logout {
@@ -110,25 +114,24 @@ header ul li a:hover,
     height: 100vh;
     background-color: var(--c3);
     position: relative;
-    z-index: -1;
 }
 #home::before {
     content: "";
     background-color: var(--c4);
-    clip-path: polygon(40% 0,100% 0,100% 100%,60% 100%);
+    /* clip-path: polygon(40% 0,100% 0,100% 100%,60% 100%); */
+    clip-path: polygon(43.01% 0px, 100% 0px, 100% 100%, 69.1% 100%);
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     opacity: 1;
-    z-index: -1;
 }
 #home .home-container {
     display: flex;
     justify-content: space-between;
-    width: -webkit-fill-available;
-    height: -webkit-fill-available;
+    width: 100%;
+    height: 100%;
 }
 #home .home-container .text {
     width: 45%;
@@ -140,10 +143,11 @@ header ul li a:hover,
     align-items: flex-start;
 }
 #home .home-container .text .title h1 {
-    font-size: 2.4rem;
+    font-size: 2.5rem;
     color: var(--c4);
     text-transform: uppercase;
-    font-weight: bolder;
+    letter-spacing: 0.1rem;
+    font-family: 'Fredoka One', cursive;
 }
 #home .home-container .text .title p {
     text-transform: capitalize;
@@ -156,6 +160,15 @@ header ul li a:hover,
     color: var(--c5);
     font-size: 1rem;
     margin-top: 0;
+}
+#home .home-container .text .button > a {
+    font-size: 1.3rem;
+    padding: 10px 15px;
+    color: var(--c3);
+    border-radius: 25px;
+    text-decoration: none;
+    background: var(--c1);
+    text-transform: capitalize;
 }
 #home .home-container .blob-cont {
     width: 50%;
@@ -204,7 +217,7 @@ header ul li a:hover,
     padding: 0.25rem;
 }
 #about-us .container .about-container .para .about-img img {
-    width: -webkit-fill-available;
+    width: 100%;
 }
 
 /*

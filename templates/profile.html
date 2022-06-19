@@ -11,12 +11,16 @@
 
 </head>
 <body>
-    <div>TICKET NUMBER : {{ ticket.ticket_num }}</div>
-    <div>Train ID : {{ ticket.train_id_id }}</div>
-    <div>Block No : {{ ticket.block_no }}</div>
-
-    <div>Cargo type : {{ ticket.type_id }}</div>
-    <div>User  : {{ ticket.user_id }}</div>
-    <a href="{% url 'home' %}" >Home</a>
+    <div>Name : {{ profile_info.username }}</div>
+    <div>Tickets : </div>
+    {% for t in tickets %}
+        <div>Ticket no : {{t.ticket_num}} </div>
+    {% endfor %}
+    <form action="#" method="post">
+        {% csrf_token %}
+        <div class="mb-3 row submit">
+            <input id="button" type="submit" class="btn btn-outline-primary" name="" value="Delete">
+        </div>
+    </form>
 </body>
 </html>
